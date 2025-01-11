@@ -1,13 +1,11 @@
 <?php
 include 'config.php';
 
-// Check if the script is accessed via POST request
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo '<script type="text/javascript">window.location = "https://brianoost.com/";</script>';
     exit;
 }
 
-// Check if the licenseKey key exists in the POST data
 if (!isset($_POST['licenseKey'])) {
     http_response_code(400); // Bad Request
     echo json_encode(array('message' => 'License key is required'));
